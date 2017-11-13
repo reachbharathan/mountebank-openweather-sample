@@ -1,0 +1,22 @@
+{
+  "name": "mountebank-openweather-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arunkumarsundaramurthy/mountebank-openweather-sample.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arunkumarsundaramurthy/mountebank-openweather-sample/issues"
+  },
+  "homepage": "https://github.com/arunkumarsundaramurthy/mountebank-openweather-sample#readme",
+  "dependencies": {
+    "mountebank": "^1.13.0"
+  }
+}
