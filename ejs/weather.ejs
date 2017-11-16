@@ -1,0 +1,41 @@
+{
+    "port": 4000,
+    "protocol": "http",
+    "stubs": [{
+        "predicates": [{
+            "equals": {
+                "method": "GET",
+                "path": "/data/2.5/weather",
+                "query": {
+                    "q": "Chennai",
+                    "appid": "7fccc77ed9c1f1f56366a13535f46ddd",
+                    "units": "metric"
+                }
+            }
+        }],
+        "responses": [{
+            "is":{
+                "statusCode": 200,
+                "headers":{
+                    "Content-Type": "application/json; charset=utf-8",
+                    "Access-Control-Allow-Origin": "*"
+                },
+                "body": "<%- stringify(filename, 'london.json') %>"
+            },
+            "_behaviors":{
+                "wait": 3000,
+                "repeat": 3
+            }
+        },{
+            "is":{
+                "statusCode": 200,
+                "headers":{
+                    "Content-Type": "application/json; charset=utf-8",
+                    "Access-Control-Allow-Origin": "*"
+                },
+                "body": "<%- stringify(filename, 'chennai.json') %>"
+            }
+
+        }]
+    }]
+}

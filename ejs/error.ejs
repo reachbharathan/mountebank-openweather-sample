@@ -1,0 +1,53 @@
+{
+    "port": 4000,
+    "protocol": "http",
+    "stubs": [{
+            "predicates": [{
+                "equals": {
+                    "method": "GET",
+                    "path": "/data/2.5/weather",
+                    "query": {
+                        "q": "error_city",
+                        "appid": "7fccc77ed9c1f1f56366a13535f46ddd",
+                        "units": "metric"
+                    }
+                }
+            }],
+            "responses": [{
+                    "is": {
+                        "statusCode": 404,
+                        "headers": {
+                            "Content-Type": "application/json; charset=utf-8",
+                            "Access-Control-Allow-Origin": "*"
+                        },
+                        "body": "{\"cod\": \"404\",\"message\": \"city not found\"}"
+                }
+            }]
+    },{
+            "predicates": [{
+                "equals": {
+                    "method": "GET",
+                    "path": "/data/2.5/weather",
+                    "query": {
+                        "appid": "invalid_app_id",
+                        "units": "metric"
+                    }
+                },
+                "matches":{
+                    "query":{
+                        "q": "*"
+                    }
+                }
+            }],
+            "responses": [{
+                    "is": {
+                        "statusCode": 401,
+                        "headers": {
+                            "Content-Type": "application/json; charset=utf-8",
+                            "Access-Control-Allow-Origin": "*"
+                        },
+                        "body": "{\"cod\": 401,\"message\": \"Invalid API key. Please see http://openweathermap.org/faq#error401 for more info.\"}"
+                }
+            }]
+    }]
+}
