@@ -15,10 +15,10 @@ function (request, state, logger, callback) {
             });
             response.on('end', function () {
                 var stubResponse = {
-                        statusCode: response.statusCode,
-                        headers: response.headers,
-                        body: response.statusCode == '404' ? "Not Found" : body
-                    };
+                    statusCode: response.statusCode,
+                    headers: response.headers,
+                    body: response.statusCode == '404' ? "Not Found" : body
+                };
                 logger.info('Successfully proxied: ' + JSON.stringify(stubResponse));
                 callback(stubResponse);
             });
